@@ -1,0 +1,39 @@
+<section class="container">
+    <section class="d-flex justify-content-between">
+        <h2>Página Inicial do Funcionário</h2>
+        <a href="/funcionario/create" class="btn btn-primary">Cadastrar Novo Funcionário</a>
+    </section>
+</section>
+
+<hr/>
+
+<section class="my-4 container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>nome</th>
+                <th>salário</th>
+                <th>cargo</th>
+                <th>departamemto</th>
+                <th>ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{!-- O each é um recurso do Handlebars que permite que tags sejam repetidas, ele funciona como uma estrutura de repetição --}}
+            {{#each dados}}
+            <tr>
+                <td>{{dataValues.id}}</td>
+                <td>{{dataValues.nome}}</td>
+                <td>R${{dataValues.salario}}</td>
+                <td>{{dataValues.cargo}}</td>
+                <td>{{departamemto.dataValues.nome}}</td>
+                <td>
+                    <a href="" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal{{dataValues.id}}">Excluir</a>
+                </td>
+            </tr>
+            {{>modalDelete idItem = dataValues.id}}
+            {{/each}}
+        </tbody>
+    </table>
+</section>
